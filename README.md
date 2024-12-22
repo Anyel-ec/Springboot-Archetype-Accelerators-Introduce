@@ -38,6 +38,17 @@ The project has the following main structure:
 ├── .gitignore               # Git ignored files
 ```
 
+### Maven settings.xml File
+To ensure the correct functioning of Maven, you must have the following `settings.xml` file in your `.m2` directory:
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>${user.home}/.m2/repository</localRepository>
+</settings>
+```
+
 ## Steps to Create and Generate an Archetype
 
 ### 1. Create an Archetype from a Base Project
