@@ -73,6 +73,7 @@ mvn install
 
 This makes the archetype available for use in future projects.
 
+
 ### 3. Generate a New Project from the Archetype
 
 Run the following command to generate a new project based on the archetype:
@@ -90,6 +91,14 @@ mvn archetype:generate \
 Replace:
 - `com.example` with the **groupId** of the new project.
 - `my-springboot-app` with the **artifactId** of the new project.
+
+#### Example 
+**Generate**
+![image](https://github.com/user-attachments/assets/356767c2-68bc-42d3-82c1-13edacf6370f)
+
+**Build Success**
+![image](https://github.com/user-attachments/assets/1e46943a-cd8d-4dbd-a138-b3f2b91b5cee)
+
 
 ### 4. Run the Generated Project
 
