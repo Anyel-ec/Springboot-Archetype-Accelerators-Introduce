@@ -1,0 +1,11 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+  ,---.  ,--.  ,--.,--.   ,--.,------.,--.       ,------. ,-----.
+ /  O  ${symbol_escape} |  ,'.|  | ${symbol_escape}  `.'  / |  .---'|  |,-----.|  .---''  .--./
+|  .-.  ||  |' '  |  '.    /  |  `--, |  |'-----'|  `--, |  |
+|  | |  ||  | `   |    |  |   |  `---.|  '--.    |  `---.'  '--'${symbol_escape}
+`--' `--'`--'  `--'    `--'   `------'`-----'    `------' `-----'
+
+${symbol_dollar}{application.title} ${symbol_dollar}{application.version}
+Powered by Spring Boot ${symbol_dollar}{spring-boot.version}
