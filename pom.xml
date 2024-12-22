@@ -11,9 +11,9 @@
     <groupId>top.anyel</groupId>
     <artifactId>archetype-springboot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>maven-archetype</packaging> <!-- Esto es crucial -->
     <name>archetype-springboot</name>
     <description>archetype-springboot</description>
-    <packaging>maven-archetype</packaging>
 
     <url/>
     <licenses>
@@ -68,14 +68,23 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <!-- Extensión necesaria para el empaquetado de archetypes -->
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>3.2.1</version>
+            </extension>
+        </extensions>
         <plugins>
+            <!-- Plugin para crear y gestionar archetypes -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-archetype-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
-                        <id>default-create-from-project</id>
+                        <id>create-archetype</id>
                         <phase>package</phase>
                         <goals>
                             <goal>create-from-project</goal>
@@ -83,28 +92,30 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Plugin para compilar el código Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </path>
-                    </annotationProcessorPaths>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <!-- Plugin para empaquetar el JAR -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
